@@ -23,12 +23,12 @@
                                     <segment title="List"/>
                                     <segment title="Detail"/>
                                 </segments>
+                                <connections>
+                                    <action selector="showComponent:" destination="BYZ-38-t0r" eventType="valueChanged" id="Ly9-Mm-ELG"/>
+                                </connections>
                             </segmentedControl>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VNO-cQ-79J">
                                 <rect key="frame" x="0.0" y="116" width="600" height="484"/>
-                                <connections>
-                                    <segue destination="gMn-LB-a1c" kind="embed" id="lwc-UH-1RU"/>
-                                </connections>
                             </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -42,27 +42,30 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Lz6-N1-2Ea"/>
+                    <connections>
+                        <outlet property="containerView" destination="VNO-cQ-79J" id="jSJ-1y-vSd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1117" y="387"/>
         </scene>
-        <!--Collection View Controller-->
+        <!--Quotes Collection View Controller-->
         <scene sceneID="Xtb-pJ-siG">
             <objects>
-                <collectionViewController id="gMn-LB-a1c" sceneMemberID="viewController">
+                <collectionViewController id="gMn-LB-a1c" customClass="QuotesCollectionViewController" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="D33-9I-qUM">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="484"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="8" id="epL-jc-De1">
                             <size key="itemSize" width="148" height="118"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="8" minY="8" maxX="8" maxY="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="rgK-Dq-XNl">
-                                <rect key="frame" x="8" y="8" width="148" height="118"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="quoteCell" id="rgK-Dq-XNl" customClass="QuotesCollectionViewCell">
+                                <rect key="frame" x="0.0" y="0.0" width="148" height="118"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="148" height="118"/>
@@ -74,7 +77,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EURUSD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eDu-wG-V1o">
                                                     <rect key="frame" x="8" y="0.0" width="131" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -92,12 +95,12 @@
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wsa-nB-nar">
                                                     <rect key="frame" x="0.0" y="73" width="74" height="30"/>
-                                                    <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="pgz-Uc-sNd"/>
                                                     </constraints>
                                                     <state key="normal" title="Sell">
-                                                        <color key="titleColor" cocoaTouchSystemColor="lightTextColor"/>
+                                                        <color key="titleColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                                     </state>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bid" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="loe-Pq-txI">
@@ -109,7 +112,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12.456" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GKt-DT-m5K">
                                                     <rect key="frame" x="8" y="34.5" width="58" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="triangle_down" translatesAutoresizingMaskIntoConstraints="NO" id="UPW-eb-6gf">
@@ -139,12 +142,12 @@
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="La9-3e-6Uu">
                                                     <rect key="frame" x="0.0" y="73" width="74" height="30"/>
-                                                    <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="aLP-xL-DN9"/>
                                                     </constraints>
                                                     <state key="normal" title="Buy">
-                                                        <color key="titleColor" cocoaTouchSystemColor="lightTextColor"/>
+                                                        <color key="titleColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                                     </state>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bid" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yEZ-1K-nT7">
@@ -156,7 +159,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12.456" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kLe-aq-8XI">
                                                     <rect key="frame" x="8" y="34.5" width="58" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="triangle_down" translatesAutoresizingMaskIntoConstraints="NO" id="TLT-dZ-fC4">
@@ -208,6 +211,15 @@
                                     <constraint firstItem="EFv-c3-5l4" firstAttribute="leading" secondItem="5oI-Tw-Uic" secondAttribute="trailing" id="ka0-x5-3Vg"/>
                                 </constraints>
                             </collectionViewCell>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="BU7-pm-Owc">
+                                <rect key="frame" x="226" y="0.0" width="148" height="118"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="148" height="118"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </collectionViewCell>
                         </cells>
                         <connections>
                             <outlet property="dataSource" destination="gMn-LB-a1c" id="SIU-qD-vJS"/>
@@ -219,16 +231,16 @@
             </objects>
             <point key="canvasLocation" x="1834" y="790"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Quotes Table View Controller-->
         <scene sceneID="TAo-rC-iaq">
             <objects>
-                <tableViewController id="bQ9-rd-JoE" sceneMemberID="viewController">
+                <tableViewController id="bQ9-rd-JoE" customClass="QuotesTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="4zn-XA-yPQ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="44" id="MOr-mA-TS0">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="quoteCell" rowHeight="44" id="MOr-mA-TS0" customClass="QuotesTableViewCell">
                                 <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MOr-mA-TS0" id="Qe5-jt-us3">
@@ -242,7 +254,7 @@
                                                 <constraint firstAttribute="width" constant="60" id="haX-Bc-Etb"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                             <variation key="default">
                                                 <mask key="constraints">
@@ -255,7 +267,7 @@
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c2X-pS-MSI">
                                                     <rect key="frame" x="214" y="8" width="40" height="28"/>
-                                                    <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                                    <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="28" id="LCb-7x-5tb"/>
                                                         <constraint firstAttribute="width" constant="40" id="hJx-pF-bwU"/>
@@ -283,7 +295,7 @@
                                                         <constraint firstAttribute="height" constant="21" id="UvX-Vm-cbR"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -306,7 +318,7 @@
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ll1-aO-OZe">
                                                     <rect key="frame" x="214" y="8" width="40" height="28"/>
-                                                    <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                                    <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="28" id="ik6-zk-vbk"/>
                                                         <constraint firstAttribute="width" constant="40" id="pws-zH-5l4"/>
@@ -334,7 +346,7 @@
                                                         <constraint firstAttribute="height" constant="21" id="y2Q-vI-Iwo"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -373,6 +385,15 @@
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="buyButton" destination="ll1-aO-OZe" id="UFe-fT-sPm"/>
+                                    <outlet property="buyPriceLabel" destination="Lqn-WU-TwC" id="kFO-ku-8iN"/>
+                                    <outlet property="buyTriangleImage" destination="oyq-fO-P6H" id="KdC-o8-6vH"/>
+                                    <outlet property="sellButton" destination="c2X-pS-MSI" id="fh6-S1-4vD"/>
+                                    <outlet property="sellPriceLabel" destination="7B7-Xa-uYe" id="6TV-CP-gs1"/>
+                                    <outlet property="sellTriangleImage" destination="4PQ-sO-eJF" id="Cnh-t5-1ET"/>
+                                    <outlet property="symbolLabel" destination="58q-5k-smV" id="v2p-u3-ERo"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

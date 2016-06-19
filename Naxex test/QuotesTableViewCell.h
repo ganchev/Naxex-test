@@ -9,5 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @interface QuotesTableViewCell : UITableViewCell
-
+@property (weak, nonatomic) IBOutlet UILabel *symbolLabel;
+@property (weak, nonatomic) IBOutlet UILabel *sellPriceLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *sellTriangleImage;
+@property (weak, nonatomic) IBOutlet UIButton *sellButton;
+@property (weak, nonatomic) IBOutlet UILabel *buyPriceLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *buyTriangleImage;
+@property (weak, nonatomic) IBOutlet UIButton *buyButton;
+@property (strong, nonatomic) NSDictionary *quote;
 @end

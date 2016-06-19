@@ -10,4 +10,5 @@
 
 @interface QuotesCollectionViewController : UICollectionViewController
 
+@property (nonatomic) NSArray *quotesList;
 @end

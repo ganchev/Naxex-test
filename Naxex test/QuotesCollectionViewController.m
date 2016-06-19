@@ -7,6 +7,7 @@
 //
 
 #import "QuotesCollectionViewController.h"
+#import "QuotesCollectionViewCell.h"
 
 @interface QuotesCollectionViewController ()
 
@@ -14,10 +15,11 @@
 
 @implementation QuotesCollectionViewController
 
-static NSString * const reuseIdentifier = @"Cell";
+static NSString * const reuseIdentifier = @"quoteCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getQuotes:) name:@"getQuotes" object:nil];
     
     // Uncomment the following line to preserve selection between presentations
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -46,20 +48,32 @@ static NSString * const reuseIdentifier = @"Cell";
 #pragma mark <UICollectionViewDataSource>
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
+    return 1;
 }
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of items
-    return 0;
+    return self.quotesList.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+    QuotesCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
-    // Configure the cell
+    NSDictionary *quote = [self.quotesList objectAtIndex:indexPath.row];
+    cell.quote = quote;
+    cell.symbolLabel.text = [quote objectForKey:@"DisplayName"];
+    cell.buyPriceLabel.text = [quote objectForKey:@"Bid"];
+    cell.sellPriceLabel.text = [quote objectForKey:@"Ask"];
+    NSNumber *changeOrientation = [quote objectForKey:@"ChangeOrientation"];
+    if (changeOrientation.integerValue == 1) {
+        cell.buyTriangleImage.hidden = NO;
+        cell.buyTriangleImage.image = [UIImage imageNamed:@"triangle_up"];
+    }else if (changeOrientation.integerValue == 2){
+        cell.buyTriangleImage.hidden = NO;
+        cell.buyTriangleImage.image = [UIImage imageNamed:@"triangle_down"];
+    }else{
+        cell.buyTriangleImage.hidden = YES;
+    }
     
     return cell;
 }
@@ -94,5 +108,17 @@ static NSString * const reuseIdentifier = @"Cell";
 	
 }
 */
+
+- (void) getQuotes:(NSNotification *) notification{
+    if ([notification.object isKindOfClass:[NSArray class]])
+    {
+        self.quotesList = [notification object];
+        [self.collectionView reloadData];
+    }
+    else
+    {
+        NSLog(@"Error, object not recognised.");
+    }
+}
 
 @end

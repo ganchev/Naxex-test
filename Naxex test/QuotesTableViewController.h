@@ -10,4 +10,5 @@
 
 @interface QuotesTableViewController : UITableViewController
 
+@property (nonatomic) NSArray *quotesList;
 @end
