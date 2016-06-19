@@ -53,15 +53,15 @@
         <!--Quotes Collection View Controller-->
         <scene sceneID="Xtb-pJ-siG">
             <objects>
-                <collectionViewController id="gMn-LB-a1c" customClass="QuotesCollectionViewController" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="QuotesCollectionViewController" id="gMn-LB-a1c" customClass="QuotesCollectionViewController" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="D33-9I-qUM">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="8" id="epL-jc-De1">
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="epL-jc-De1">
                             <size key="itemSize" width="148" height="118"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="5" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="quoteCell" id="rgK-Dq-XNl" customClass="QuotesCollectionViewCell">
@@ -109,14 +109,14 @@
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12.456" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GKt-DT-m5K">
-                                                    <rect key="frame" x="8" y="34.5" width="58" height="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="12.456" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GKt-DT-m5K">
+                                                    <rect key="frame" x="8" y="34" width="58" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="triangle_down" translatesAutoresizingMaskIntoConstraints="NO" id="UPW-eb-6gf">
-                                                    <rect key="frame" x="29.5" y="54" width="16" height="16"/>
+                                                    <rect key="frame" x="29" y="54" width="16" height="16"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="16" id="Ibc-w7-MGt"/>
                                                         <constraint firstAttribute="width" constant="16" id="v7f-Ev-Mdl"/>
@@ -150,20 +150,20 @@
                                                         <color key="titleColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                                     </state>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bid" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yEZ-1K-nT7">
-                                                    <rect key="frame" x="28" y="8" width="18.5" height="14.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ask" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yEZ-1K-nT7">
+                                                    <rect key="frame" x="27" y="8" width="21" height="14.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12.456" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kLe-aq-8XI">
-                                                    <rect key="frame" x="8" y="34.5" width="58" height="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="12.456" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kLe-aq-8XI">
+                                                    <rect key="frame" x="8" y="34" width="58" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="triangle_down" translatesAutoresizingMaskIntoConstraints="NO" id="TLT-dZ-fC4">
-                                                    <rect key="frame" x="29.5" y="54" width="16" height="16"/>
+                                                    <rect key="frame" x="29" y="54" width="16" height="16"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="16" id="D8m-Qw-Sj7"/>
                                                         <constraint firstAttribute="width" constant="16" id="duK-wj-Vpw"/>
@@ -210,15 +210,15 @@
                                     <constraint firstAttribute="bottomMargin" secondItem="5oI-Tw-Uic" secondAttribute="bottom" constant="-8" id="jYV-NL-vTd"/>
                                     <constraint firstItem="EFv-c3-5l4" firstAttribute="leading" secondItem="5oI-Tw-Uic" secondAttribute="trailing" id="ka0-x5-3Vg"/>
                                 </constraints>
-                            </collectionViewCell>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="BU7-pm-Owc">
-                                <rect key="frame" x="226" y="0.0" width="148" height="118"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="148" height="118"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
+                                <connections>
+                                    <outlet property="buyButton" destination="La9-3e-6Uu" id="iIJ-1G-E49"/>
+                                    <outlet property="buyPriceLabel" destination="kLe-aq-8XI" id="TbC-GT-Tgk"/>
+                                    <outlet property="buyTriangleImage" destination="TLT-dZ-fC4" id="kbz-Y0-fBt"/>
+                                    <outlet property="sellButton" destination="wsa-nB-nar" id="lin-iX-Qkb"/>
+                                    <outlet property="sellPriceLabel" destination="GKt-DT-m5K" id="UyR-86-K82"/>
+                                    <outlet property="sellTriangleImage" destination="UPW-eb-6gf" id="Ntc-sP-unG"/>
+                                    <outlet property="symbolLabel" destination="eDu-wG-V1o" id="AtQ-6A-aNg"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -229,12 +229,12 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="msd-4R-iBr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1834" y="790"/>
+            <point key="canvasLocation" x="1848" y="814"/>
         </scene>
         <!--Quotes Table View Controller-->
         <scene sceneID="TAo-rC-iaq">
             <objects>
-                <tableViewController id="bQ9-rd-JoE" customClass="QuotesTableViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="QuotesTableViewController" id="bQ9-rd-JoE" customClass="QuotesTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="4zn-XA-yPQ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

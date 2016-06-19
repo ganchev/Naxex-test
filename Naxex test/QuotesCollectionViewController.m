@@ -25,8 +25,7 @@ static NSString * const reuseIdentifier = @"quoteCell";
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Register cell classes
-    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
-    
+     [self.collectionView setBackgroundColor:[UIColor whiteColor]];
     // Do any additional setup after loading the view.
 }
 
@@ -76,6 +75,11 @@ static NSString * const reuseIdentifier = @"quoteCell";
     }
     
     return cell;
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return CGSizeMake(self.view.frame.size.width/2-20, 150);
 }
 
 #pragma mark <UICollectionViewDelegate>

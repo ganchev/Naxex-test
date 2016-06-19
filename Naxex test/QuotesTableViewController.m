@@ -53,11 +53,16 @@
     if (changeOrientation.integerValue == 1) {
         cell.buyTriangleImage.hidden = NO;
         cell.buyTriangleImage.image = [UIImage imageNamed:@"triangle_up"];
+        cell.sellTriangleImage.hidden = NO;
+        cell.sellTriangleImage.image = [UIImage imageNamed:@"triangle_up"];
     }else if (changeOrientation.integerValue == 2){
         cell.buyTriangleImage.hidden = NO;
         cell.buyTriangleImage.image = [UIImage imageNamed:@"triangle_down"];
+        cell.sellTriangleImage.hidden = NO;
+        cell.sellTriangleImage.image = [UIImage imageNamed:@"triangle_down"];
     }else{
         cell.buyTriangleImage.hidden = YES;
+        cell.sellTriangleImage.hidden = YES;
     }
     
     return cell;
