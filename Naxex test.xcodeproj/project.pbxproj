@@ -17,6 +17,7 @@
 		0E79CCFE1D171517004CB133 /* QuotesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E79CCFD1D171517004CB133 /* QuotesTableViewCell.m */; };
 		0E79CD011D171596004CB133 /* QuotesCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E79CD001D171596004CB133 /* QuotesCollectionViewController.m */; };
 		0E79CD041D1715B6004CB133 /* QuotesCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E79CD031D1715B6004CB133 /* QuotesCollectionViewCell.m */; };
+		0ED6FBA31D175FA600009B8B /* CurrencySelectTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ED6FBA21D175FA600009B8B /* CurrencySelectTableViewController.m */; };
 		7B9AA6F91B98C9FB4F5606C9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DAF4A02A729D61CCCF9D018 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +40,8 @@
 		0E79CD001D171596004CB133 /* QuotesCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuotesCollectionViewController.m; sourceTree = "<group>"; };
 		0E79CD021D1715B6004CB133 /* QuotesCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuotesCollectionViewCell.h; sourceTree = "<group>"; };
 		0E79CD031D1715B6004CB133 /* QuotesCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuotesCollectionViewCell.m; sourceTree = "<group>"; };
+		0ED6FBA11D175FA600009B8B /* CurrencySelectTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrencySelectTableViewController.h; sourceTree = "<group>"; };
+		0ED6FBA21D175FA600009B8B /* CurrencySelectTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrencySelectTableViewController.m; sourceTree = "<group>"; };
 		6DAF4A02A729D61CCCF9D018 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9251ECD491C7EBF8F17841AB /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		BAC0FDB6B29FFED5D4363276 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -94,6 +97,8 @@
 				0E79CD001D171596004CB133 /* QuotesCollectionViewController.m */,
 				0E79CD021D1715B6004CB133 /* QuotesCollectionViewCell.h */,
 				0E79CD031D1715B6004CB133 /* QuotesCollectionViewCell.m */,
+				0ED6FBA11D175FA600009B8B /* CurrencySelectTableViewController.h */,
+				0ED6FBA21D175FA600009B8B /* CurrencySelectTableViewController.m */,
 			);
 			path = "Naxex test";
 			sourceTree = "<group>";
@@ -244,6 +249,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0ED6FBA31D175FA600009B8B /* CurrencySelectTableViewController.m in Sources */,
 				0E0027471D11B779007A0D3A /* ViewController.m in Sources */,
 				0E79CCFE1D171517004CB133 /* QuotesTableViewCell.m in Sources */,
 				0E79CD041D1715B6004CB133 /* QuotesCollectionViewCell.m in Sources */,

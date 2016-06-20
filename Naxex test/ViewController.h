@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController 
+@interface ViewController : UIViewController <UIPopoverPresentationControllerDelegate>
 
 @property (atomic) NSArray *quotesList;
-
+@property (atomic) NSArray *currencyList;
 
 @end
 

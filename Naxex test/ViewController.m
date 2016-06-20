@@ -10,6 +10,7 @@
 #import "AFNetworking.h"
 #import "QuotesTableViewController.h"
 #import "QuotesCollectionViewController.h"
+#import "CurrencySelectTableViewController.h"
 
 @interface ViewController ()
 @property (nonatomic) QuotesTableViewController *quotesTableView;
@@ -34,6 +35,7 @@
     self.quotesCollectionView.view.translatesAutoresizingMaskIntoConstraints = NO;
     [self addChildViewController:self.quotesCollectionView];
     [self addSubview:self.quotesTableView.view toView:self.containerView];
+    self.currencyList = @[@"EURUSD",@"GBPUSD",@"USDCHF",@"USDJPY",@"AUDUSD",@"USDCAD",@"GBPJPY",@"EURGBP",@"EURJPY",@"AUDCAD"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -85,6 +87,8 @@
     [parentView addConstraints:constraints];
 }
 
+- (IBAction)onSelectCurrency:(id)sender {
+}
 
 - (void) getQuotes{
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
@@ -92,7 +96,7 @@
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
     [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
 
-    [manager POST:@"http://eu.tradenetworks.com/QuotesBox/quotes/GetQuotesBySymbols?languageCode=en-US&symbols=EURUSD,GBPUSD,USDCHF,USDJPY,AUDUSD,USDCAD,GBPJPY,EURGBP,EURJPY,AUDCAD" parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
+    [manager POST:[NSString stringWithFormat:@"http://eu.tradenetworks.com/QuotesBox/quotes/GetQuotesBySymbols?languageCode=en-US&symbols=%@", [self.currencyList componentsJoinedByString: @","]] parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
         NSString* jsonString = [NSString stringWithUTF8String:[responseObject bytes]];
         if (jsonString !=nil) {
             jsonString = [jsonString substringWithRange:NSMakeRange(1, jsonString.length-2)];
@@ -103,24 +107,59 @@
         NSError* jsonError = nil;
         NSArray* jsonArray = nil; // your data will come out as a NSDictionry from the parser
         jsonArray = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingAllowFragments  error:&jsonError];
-        if (jsonArray) {
+        if (jsonArray && [jsonArray isKindOfClass:[NSArray class]]) {
+            NSMutableArray *quotes = [NSMutableArray arrayWithCapacity:self.currencyList.count];
+            for (NSDictionary *quote in jsonArray) {
+                if ([self.currencyList containsObject:[quote objectForKey:@"Currency"]]) {
+                    [quotes addObject:quote];
+                }
+            }
             dispatch_async(dispatch_get_main_queue(),^{
-                self.quotesList = jsonArray;
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"getQuotes" object:jsonArray];
+                self.quotesList = quotes;
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"getQuotes" object:quotes];
             });
         }else{
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Error" message:@"Error with Json parsing" preferredStyle:UIAlertControllerStyleAlert];
             
+            UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+            [alertController addAction:ok];
+            
+            [self presentViewController:alertController animated:YES completion:nil];
         }
         NSLog(@"JSON: %@", jsonString);
     } failure:^(NSURLSessionTask *operation, NSError *error) {
-//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Няма връзка с мрежата!"
-//                                                        message:error.localizedDescription
-//                                                       delegate:nil
-//                                              cancelButtonTitle:@"OK"
-//                                              otherButtonTitles:nil];
-//        [alert show];
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Error" message:error.localizedDescription preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        [alertController addAction:ok];
+        
+        [self presentViewController:alertController animated:YES completion:nil];
         NSLog(@"Error: %@", error);
     }];
+}
+
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller
+    if ([[segue identifier] isEqualToString: @"selectCurrency"]) {
+        CurrencySelectTableViewController *currencyVC = [segue destinationViewController];
+        currencyVC.currencyList = @[@"EURUSD",@"GBPUSD",@"USDCHF",@"USDJPY",@"AUDUSD",@"USDCAD",@"GBPJPY",@"EURGBP",@"EURJPY",@"AUDCAD"];
+        currencyVC.selectedCurrencyList = self.currencyList.mutableCopy;
+        currencyVC.popoverPresentationController.delegate = self;
+        currencyVC.preferredContentSize = CGSizeMake(200.0,440.0);
+    }
+}
+
+-(void)popoverPresentationControllerDidDismissPopover:(UIPopoverPresentationController *)popoverPresentationController{
+    CurrencySelectTableViewController *currencyVC = (CurrencySelectTableViewController*) popoverPresentationController.presentedViewController;
+    self.currencyList = currencyVC.selectedCurrencyList.copy;
+}
+
+- (UIModalPresentationStyle)adaptivePresentationStyleForPresentationController:(UIPresentationController *)controller {
+    return UIModalPresentationNone;
 }
 
 @end

@@ -5,7 +5,45 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Currency Select Table View Controller-->
+        <scene sceneID="5I9-zs-2kc">
+            <objects>
+                <tableViewController modalPresentationStyle="formSheet" id="iDx-Cu-dIW" customClass="CurrencySelectTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" allowsMultipleSelection="YES" allowsMultipleSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="4FX-i9-kSw">
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="400"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="currencyCell" textLabel="86j-ll-s7q" style="IBUITableViewCellStyleDefault" id="5fI-Om-Fi6">
+                                <rect key="frame" x="0.0" y="28" width="300" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5fI-Om-Fi6" id="F7M-cZ-qv0">
+                                    <rect key="frame" x="0.0" y="0.0" width="261" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="86j-ll-s7q">
+                                            <rect key="frame" x="15" y="0.0" width="246" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="iDx-Cu-dIW" id="r6N-Lb-7eq"/>
+                            <outlet property="delegate" destination="iDx-Cu-dIW" id="OHk-9p-6ME"/>
+                        </connections>
+                    </tableView>
+                    <value key="contentSizeForViewInPopover" type="size" width="300" height="400"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g28-Th-qa1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1122" y="-307"/>
+        </scene>
+        <!--Quotes-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
@@ -41,7 +79,16 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="VNO-cQ-79J" secondAttribute="bottom" id="n9K-hL-xDy"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Lz6-N1-2Ea"/>
+                    <navigationItem key="navigationItem" title="Quotes" id="Lz6-N1-2Ea">
+                        <barButtonItem key="rightBarButtonItem" systemItem="organize" id="dnq-in-60j">
+                            <connections>
+                                <action selector="onSelectCurrency:" destination="BYZ-38-t0r" id="6Dl-3L-pzn"/>
+                                <segue destination="iDx-Cu-dIW" kind="popoverPresentation" identifier="selectCurrency" popoverAnchorBarButtonItem="dnq-in-60j" id="Wyt-Xp-o1H">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="containerView" destination="VNO-cQ-79J" id="jSJ-1y-vSd"/>
                     </connections>
@@ -59,23 +106,23 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="epL-jc-De1">
                             <size key="itemSize" width="148" height="118"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="headerReferenceSize" width="50" height="50"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="5" maxY="0.0"/>
+                            <inset key="sectionInset" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="quoteCell" id="rgK-Dq-XNl" customClass="QuotesCollectionViewCell">
-                                <rect key="frame" x="0.0" y="0.0" width="148" height="118"/>
+                                <rect key="frame" x="5" y="50" width="148" height="118"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="148" height="118"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7gt-2V-ENK">
-                                            <rect key="frame" x="0.0" y="0.0" width="147" height="16"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="148" height="16"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EURUSD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eDu-wG-V1o">
-                                                    <rect key="frame" x="8" y="0.0" width="131" height="16"/>
+                                                    <rect key="frame" x="8" y="0.0" width="132" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -102,6 +149,9 @@
                                                     <state key="normal" title="Sell">
                                                         <color key="titleColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="onSell:" destination="gMn-LB-a1c" eventType="touchUpInside" id="4Bp-PS-meD"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bid" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="loe-Pq-txI">
                                                     <rect key="frame" x="28" y="8" width="18.5" height="14.5"/>
@@ -109,8 +159,8 @@
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="12.456" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GKt-DT-m5K">
-                                                    <rect key="frame" x="8" y="34" width="58" height="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12.456" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GKt-DT-m5K">
+                                                    <rect key="frame" x="8" y="35" width="58" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -149,6 +199,9 @@
                                                     <state key="normal" title="Buy">
                                                         <color key="titleColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="onBuy:" destination="gMn-LB-a1c" eventType="touchUpInside" id="KDy-Kt-NaT"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ask" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yEZ-1K-nT7">
                                                     <rect key="frame" x="27" y="8" width="21" height="14.5"/>
@@ -156,8 +209,8 @@
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="12.456" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kLe-aq-8XI">
-                                                    <rect key="frame" x="8" y="34" width="58" height="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12.456" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kLe-aq-8XI">
+                                                    <rect key="frame" x="8" y="35" width="58" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -196,7 +249,7 @@
                                 </view>
                                 <constraints>
                                     <constraint firstAttribute="trailingMargin" secondItem="EFv-c3-5l4" secondAttribute="trailing" constant="-8" id="32k-dh-p11"/>
-                                    <constraint firstAttribute="trailingMargin" secondItem="7gt-2V-ENK" secondAttribute="trailing" constant="-7" id="DQf-vI-IhH"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="7gt-2V-ENK" secondAttribute="trailing" constant="-8" id="DQf-vI-IhH"/>
                                     <constraint firstAttribute="bottomMargin" secondItem="EFv-c3-5l4" secondAttribute="bottom" constant="-8" id="JJw-cX-guw"/>
                                     <constraint firstItem="XZT-li-r8f" firstAttribute="top" secondItem="rgK-Dq-XNl" secondAttribute="topMargin" constant="-8" id="LfN-mM-45w"/>
                                     <constraint firstAttribute="bottomMargin" secondItem="XZT-li-r8f" secondAttribute="bottom" constant="-8" id="OfV-72-9gd"/>
@@ -221,6 +274,19 @@
                                 </connections>
                             </collectionViewCell>
                         </cells>
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="quotesHeader" id="2uD-xb-XrN">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Quotes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Rp-PB-baW">
+                                    <rect key="frame" x="8" y="14" width="79" height="21"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </collectionReusableView>
                         <connections>
                             <outlet property="dataSource" destination="gMn-LB-a1c" id="SIU-qD-vJS"/>
                             <outlet property="delegate" destination="gMn-LB-a1c" id="lc2-aK-7uu"/>
@@ -240,7 +306,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="quoteCell" rowHeight="44" id="MOr-mA-TS0" customClass="QuotesTableViewCell">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="quoteCell" rowHeight="44" id="MOr-mA-TS0" customClass="QuotesTableViewCell">
                                 <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MOr-mA-TS0" id="Qe5-jt-us3">
@@ -275,9 +341,13 @@
                                                     <state key="normal" title="Sell">
                                                         <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="onSell:" destination="bQ9-rd-JoE" eventType="touchUpInside" id="9fI-ql-dz1"/>
+                                                    </connections>
                                                 </button>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="srb-cq-Cpq">
                                                     <rect key="frame" x="0.0" y="0.0" width="1" height="44"/>
+                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="1" id="oS1-Em-yCG"/>
                                                     </constraints>
@@ -326,9 +396,13 @@
                                                     <state key="normal" title="Buy">
                                                         <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="onBuy:" destination="bQ9-rd-JoE" eventType="touchUpInside" id="jZo-om-jv9"/>
+                                                    </connections>
                                                 </button>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2sf-b7-VzS">
                                                     <rect key="frame" x="0.0" y="0.0" width="1" height="44"/>
+                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="1" id="Guc-Vz-tAm"/>
                                                     </constraints>
