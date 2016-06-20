@@ -80,7 +80,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Quotes" id="Lz6-N1-2Ea">
-                        <barButtonItem key="rightBarButtonItem" systemItem="organize" id="dnq-in-60j">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="dnq-in-60j">
                             <connections>
                                 <action selector="onSelectCurrency:" destination="BYZ-38-t0r" id="6Dl-3L-pzn"/>
                                 <segue destination="iDx-Cu-dIW" kind="popoverPresentation" identifier="selectCurrency" popoverAnchorBarButtonItem="dnq-in-60j" id="Wyt-Xp-o1H">
